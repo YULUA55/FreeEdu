@@ -4,14 +4,16 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class Teacher {
+public class Student {
     private long id;
     private String name;
     private String surname;
     private String email;
     private ArrayList<Course> courses;
+    private ArrayList<Solution> solutions;
+    private ArrayList<Task> personalTasks;
 
-    public Teacher(String name, String surname, String email) {
+    public Student(String name, String surname, String email) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -49,6 +51,23 @@ public class Teacher {
         this.email = email;
     }
 
+
+    public ArrayList<Solution> getSolutions() {
+        return solutions;
+    }
+
+    public void setSolutions(ArrayList<Solution> solutions) {
+        this.solutions = solutions;
+    }
+
+    public ArrayList<Task> getPersonalTasks() {
+        return personalTasks;
+    }
+
+    public void setPersonalTasks(ArrayList<Task> personalTasks) {
+        this.personalTasks = personalTasks;
+    }
+
     public ArrayList<Course> getCourses() {
         return courses;
     }
@@ -65,7 +84,7 @@ public class Teacher {
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Teacher guest = (Teacher) obj;
+        Student guest = (Student) obj;
         return ((name.equals(guest.getName())) && (surname.equals(guest.getSurname())) && (email.equals(guest.getEmail()))
         );
     }

@@ -5,19 +5,19 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 
-public class CourseDаo {
+public class CourseDаo extends AbstractDao{
     Gson gson;
 
     public CourseDаo() {
         gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
-    public Course getCourse(String json) {
+    public Course getEntity(String json) {
         Course course = gson.fromJson(json, Course.class);
         return course;
     }
 
-    public Course[] getAllCourses(String json) {
+    public Course[] getAll(String json) {
         Course[] courses = gson.fromJson(json, Course[].class);
 
         return courses;

@@ -1,7 +1,5 @@
 package com.example.freeedu;
 
-import android.icu.util.LocaleData;
-
 import org.junit.Before;
 import org.junit.Test;
 

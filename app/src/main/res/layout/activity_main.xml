@@ -2,49 +2,62 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/id_label"
-        android:text="@string/id_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/id_picture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@android:color/holo_green_light" />
+
 
     <TextView
-        android:id="@+id/content_label"
-        android:text="@string/content_label"
+        android:id="@+id/id_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/id_label"
-        android:layout_alignParentLeft="true" />
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/id_picture"
+        android:text=""
+        android:textSize="38dp" />
 
     <TextView
-        android:id="@+id/id_value"
-        android:text="@string/id_value"
+        android:id="@+id/id_surname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/id_label"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/id_name"
+        android:text=""
+        android:textSize="38dp" />
 
     <TextView
-        android:id="@+id/content_value"
-        android:text="@string/content_value"
+        android:id="@+id/id_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/content_label"
-        android:layout_alignLeft="@+id/id_value" />
+        android:layout_below="@id/id_name"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/id_picture"
+        android:text=""
+        android:textSize="24dp" />
 
     <Button
         android:id="@+id/button"
+        android:background="@android:color/holo_orange_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_picture"
+        android:layout_marginTop="20dp"
+        android:text="@string/button" />
+
+    <TextView
+        android:id="@+id/id_courses"
+        android:layout_below="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/content_value"
-        android:layout_margin="50dp"/>
+        android:text=""
+        android:textSize="23dp"/>
 
 
 </RelativeLayout>

@@ -12,6 +12,7 @@ public class Course {
     private ArrayList<Lesson> lessons;
     private ArrayList<Student> students;
 
+
     public Course(String name, String description, Teacher teacher) {
         this.name = name;
         this.description = description;
@@ -82,6 +83,6 @@ public class Course {
     @NonNull
     @Override
     public String toString() {
-        return this.description+this.name+this.teacher.getName()+this.teacher.getEmail();
+        return "\n Name:" + this.name + "\n Description: " + this.description;
     }
 }

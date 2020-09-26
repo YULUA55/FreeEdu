@@ -3,14 +3,14 @@ package com.example.freeedu.entities;
 
 import androidx.annotation.Nullable;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Lesson {
     private long id;
     private Course course;
     private String description;
-    private LocalDate date;
+    private Date date;
     private ArrayList<Task> tasks;
 
     public Lesson(Course course, String description) {
@@ -42,11 +42,11 @@ public class Lesson {
         this.description = description;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setData(LocalDate date) {
+    public void setData(Date date) {
         this.date = date;
     }
 

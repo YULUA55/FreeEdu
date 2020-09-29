@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,73 +7,78 @@
     android:orientation="vertical"
     tools:context=".views.TeacherView">
 
-    <ImageView
-        android:id="@+id/id_picture"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/profile" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/id_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_toRightOf="@id/id_picture"
-        android:text=""
-        android:textSize="28dp" />
+        <ImageView
+            android:id="@+id/id_picture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/profile" />
 
-    <TextView
-        android:id="@+id/id_surname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/id_name"
-        android:text=""
-        android:textSize="28dp" />
+        <TextView
+            android:id="@+id/id_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@id/id_picture"
+            android:text=""
+            android:textSize="28dp" />
 
-    <TextView
-        android:id="@+id/id_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/id_name"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/id_picture"
-        android:text=""
-        android:textSize="18dp" />
+        <TextView
+            android:id="@+id/id_surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/id_name"
+            android:text=""
+            android:textSize="28dp" />
 
-
-    <ImageView
-        android:id="@+id/id_course_picture"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@+id/id_picture"
-        android:layout_margin="10dp"
-        android:src="@drawable/courses" />
-
-    <Button
-        android:id="@+id/id_course_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/id_email"
-        android:layout_marginTop="47dp"
-        android:layout_toRightOf="@+id/id_course_picture"
-        android:background="#00FFFFFF"
-        android:fontFamily="@android:string/cut"
-        android:text="My courses"
-        android:textSize="25dp"
-
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/id_course_btn"
-        android:layout_margin="10dp"
-        android:layout_toRightOf="@+id/id_course_picture"
-        android:text="List of my courses" />
+        <TextView
+            android:id="@+id/id_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_name"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/id_picture"
+            android:text=""
+            android:textSize="18dp" />
 
 
+        <ImageView
+            android:id="@+id/id_course_picture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/id_picture"
+            android:layout_margin="10dp"
+            android:src="@drawable/courses" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/id_course_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_email"
+            android:layout_marginTop="47dp"
+            android:layout_toRightOf="@+id/id_course_picture"
+            android:background="#00FFFFFF"
+            android:fontFamily="@android:string/cut"
+            android:text="My courses"
+            android:textSize="25dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_course_btn"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@+id/id_course_picture"
+            android:text="List of my courses" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

@@ -1,34 +1,45 @@
 package com.example.freeedu.views;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.freeedu.R;
 import com.example.freeedu.presenters.TeacherMainPresenter;
 
-public class TeacherActivity extends FragmentActivity implements BaseView {
+public class TeacherView extends Fragment implements BaseView {
     private TeacherMainPresenter presenter;
     private TextView name;
     private TextView surname;
     private TextView email;
+    private Button button;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        presenter = new TeacherMainPresenter(this);
-        name = (TextView) findViewById(R.id.id_name);
-        surname = (TextView) findViewById(R.id.id_surname);
-        email = (TextView) findViewById(R.id.id_email);
-        showData();
+    public static TeacherView newInstance() {
+        return new TeacherView();
     }
 
     @Override
-    public void showData() {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.teacher_fragment, container, false);
+        presenter = new TeacherMainPresenter(this);
+        name = view.findViewById(R.id.id_name);
+        surname = view.findViewById(R.id.id_surname);
+        email = view.findViewById(R.id.id_email);
+        showDataAtFirst();
+        return view;
+    }
+
+
+    @Override
+    public void showDataAtFirst() {
         presenter.showName();
         presenter.showEmail();
         presenter.showSurname();

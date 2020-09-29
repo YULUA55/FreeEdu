@@ -9,7 +9,6 @@ public class Teacher {
     private String name;
     private String surname;
     private String email;
-    private ArrayList<Course> courses;
 
     public Teacher(String name, String surname, String email) {
         this.name = name;
@@ -49,13 +48,6 @@ public class Teacher {
         this.email = email;
     }
 
-    public ArrayList<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
-    }
 
     @Override
     public boolean equals(@Nullable Object obj) {

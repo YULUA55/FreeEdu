@@ -2,21 +2,16 @@ package com.example.freeedu.entities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import java.util.ArrayList;
 
 public class Course {
     private long id;
     private String name;
     private String description;
-    private Teacher teacher;
-    private ArrayList<Lesson> lessons;
-    private ArrayList<Student> students;
 
 
-    public Course(String name, String description, Teacher teacher) {
+    public Course(String name, String description) {
         this.name = name;
         this.description = description;
-        this.teacher=teacher;
     }
 
     public long getId() {
@@ -43,29 +38,6 @@ public class Course {
         this.description = description;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
-
-    public ArrayList<Lesson> getLessons() {
-        return lessons;
-    }
-
-    public void setLessons(ArrayList<Lesson> lessons) {
-        this.lessons = lessons;
-    }
-
-    public ArrayList<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
-    }
 
     @Override
     public boolean equals(@Nullable Object obj) {
@@ -76,7 +48,7 @@ public class Course {
             return false;
         }
         Course guest = (Course) obj;
-        return ((name.equals( guest.getName())) && (description.equals( guest.getDescription())) && (teacher.equals(guest.getTeacher()))
+        return ((name.equals( guest.getName())) && (description.equals( guest.getDescription()))
         );
     }
 

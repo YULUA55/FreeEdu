@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.freeedu.R;
@@ -49,6 +50,5 @@ public class TeacherCoursesView extends Fragment implements BaseView {
     public void showDescription(String receivedDescription) {
         description.setText(description.getText() + "\n" + receivedDescription);
     }
-
 
 }

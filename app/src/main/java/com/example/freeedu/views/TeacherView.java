@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +16,30 @@ import com.example.freeedu.R;
 import com.example.freeedu.presenters.TeacherMainPresenter;
 
 public class TeacherView extends Fragment implements BaseView {
+
+    public interface onCourseButtonEventListener {
+        public void buttonWasClicked();
+    }
+
     private TeacherMainPresenter presenter;
     private TextView name;
     private TextView surname;
     private TextView email;
     private Button button;
+    private onCourseButtonEventListener onCourseButtonEventListener;
 
     public static TeacherView newInstance() {
         return new TeacherView();
+    }
+
+    @Override
+    public void onAttach(@NonNull Activity activity) {
+        super.onAttach(activity);
+        try {
+            onCourseButtonEventListener = (onCourseButtonEventListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement onCourseButtonEventListener ");
+        }
     }
 
     @Override
@@ -33,6 +50,14 @@ public class TeacherView extends Fragment implements BaseView {
         name = view.findViewById(R.id.id_name);
         surname = view.findViewById(R.id.id_surname);
         email = view.findViewById(R.id.id_email);
+
+        Button button = view.findViewById(R.id.id_course_btn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCourseButtonEventListener.buttonWasClicked();
+            }
+        });
         showDataAtFirst();
         return view;
     }
@@ -56,6 +81,4 @@ public class TeacherView extends Fragment implements BaseView {
     public void showEmail(String receivedEmail) {
         email.setText(receivedEmail);
     }
-
-
 }

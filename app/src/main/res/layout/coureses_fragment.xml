@@ -5,37 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".views.TeacherCoursesView">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/course_picture"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/course" />
-
-    <TextView
-        android:id="@+id/id_course_name"
+    <TableLayout
+        android:id="@+id/courses_box"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:layout_toRightOf="@id/course_picture"
-        android:text=""
-        android:textSize="18dp" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/id_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/id_course_name"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@id/course_picture"
-        android:text=""
-        android:textSize="18dp" />
+    </TableLayout>
 
-</RelativeLayout>
 
 </FrameLayout>

@@ -12,6 +12,7 @@ public class TeacherCoursesPresenter {
 
     private TeacherCoursesView teacherCoursesView;
     private TeacherCoursesModel teacherCoursesModel;
+    private String data;
 
     public TeacherCoursesPresenter(TeacherCoursesView teacherCoursesView) {
         this.teacherCoursesView = teacherCoursesView;
@@ -29,17 +30,12 @@ public class TeacherCoursesPresenter {
         return list;
     }
 
-    public void showNameOfCourses() {
+    public void showCourses() {
         for (int i = 0; i < teacherCoursesModel.getCourses().size(); i++) {
-            teacherCoursesView.showName(teacherCoursesModel.getCourses().get(i).getName());
+            data = teacherCoursesModel.getCourses().get(i).getName() + "\n" + teacherCoursesModel.getCourses().get(i).getDescription();
+            teacherCoursesView.showCourse(data);
         }
 
     }
 
-    public void showDescriptions() {
-        for (int i = 0; i < teacherCoursesModel.getCourses().size(); i++) {
-            teacherCoursesView.showDescription(teacherCoursesModel.getCourses().get(i).getDescription());
-        }
-
-    }
 }

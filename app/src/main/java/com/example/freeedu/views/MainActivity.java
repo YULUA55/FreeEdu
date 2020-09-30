@@ -5,7 +5,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-
 import com.example.freeedu.R;
 
 public class MainActivity extends FragmentActivity implements TeacherView.onCourseButtonEventListener {

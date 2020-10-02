@@ -17,29 +17,14 @@ import com.example.freeedu.presenters.TeacherMainPresenter;
 
 public class TeacherView extends Fragment implements BaseView {
 
-    public interface onCourseButtonEventListener {
-        public void buttonWasClicked();
-    }
-
     private TeacherMainPresenter presenter;
     private TextView name;
     private TextView surname;
     private TextView email;
     private Button button;
-    private onCourseButtonEventListener onCourseButtonEventListener;
 
     public static TeacherView newInstance() {
         return new TeacherView();
-    }
-
-    @Override
-    public void onAttach(@NonNull Activity activity) {
-        super.onAttach(activity);
-        try {
-            onCourseButtonEventListener = (onCourseButtonEventListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement onCourseButtonEventListener ");
-        }
     }
 
     @Override
@@ -55,7 +40,7 @@ public class TeacherView extends Fragment implements BaseView {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onCourseButtonEventListener.buttonWasClicked();
+                ((MainActivity)getActivity()).navigateToScreen(MainActivity.ScreenId.TEACHER_COURSES);
             }
         });
         showDataAtFirst();

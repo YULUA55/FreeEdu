@@ -9,60 +9,44 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.freeedu.R;
-import com.example.freeedu.presenters.TeacherCoursesPresenter;
+import com.example.freeedu.presenters.ListOfStudentsPresenter;
 
-public class TeacherCoursesView extends Fragment implements BaseView {
-    TeacherCoursesPresenter presenter;
+public class ListOfStudentsView extends Fragment implements BaseView {
+    ListOfStudentsPresenter presenter;
     TableLayout box;
 
 
-    public static TeacherCoursesView newInstance() {
-        return new TeacherCoursesView();
+    public static ListOfStudentsView newInstance() {
+        return new ListOfStudentsView();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.coureses_fragment, container, false);
-        presenter = new TeacherCoursesPresenter(this);
-        box = view.findViewById(R.id.courses_box);
+        View view = inflater.inflate(R.layout.list_of_students_fragment, container, false);
+        presenter = new ListOfStudentsPresenter(this);
+        box = view.findViewById(R.id.students_box);
         showDataAtFirst();
         return view;
     }
 
     public void showDataAtFirst() {
-        presenter.getCourses();
+        presenter.showListOfStudents();
     }
 
 
-    public void showCourse(String data) {
+    public void showStudent(String data) {
         TableRow tableRow = new TableRow(getContext());
-        tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
-                TableLayout.LayoutParams.WRAP_CONTENT));
-        tableRow.addView(generateImage());
+        tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
         tableRow.addView(generateDescription(data));
-        tableRow.addView(generateButton());
         box.addView(tableRow);
 
-    }
-
-    private Button generateButton(){
-        Button buttonToListOfStudents = new Button(getContext());
-        buttonToListOfStudents.setText("SCHEDULE");
-        buttonToListOfStudents.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((MainActivity) getActivity()).navigateToScreen(MainActivity.ScreenId.COURSE_SCHEDULE);
-            }
-        });
-        return buttonToListOfStudents;
     }
 
     private TextView generateDescription(String data) {

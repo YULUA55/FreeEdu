@@ -3,19 +3,18 @@ package com.example.freeedu.entities;
 
 import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Lesson {
     private long id;
-    private Course course;
     private String description;
-    private Date date;
-    private ArrayList<Task> tasks;
+    private LocalDateTime date;
 
-    public Lesson(Course course, String description) {
-        this.course = course;
+    public Lesson(){};
+
+    public Lesson(String description, LocalDateTime date) {
         this.description = description;
+        this.date = date;
     }
 
     public long getId() {
@@ -26,13 +25,6 @@ public class Lesson {
         this.id = id;
     }
 
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
 
     public String getDescription() {
         return description;
@@ -42,21 +34,14 @@ public class Lesson {
         this.description = description;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setData(Date date) {
+    public void setData(LocalDateTime date) {
         this.date = date;
     }
 
-    public ArrayList<Task> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(ArrayList<Task> tasks) {
-        this.tasks = tasks;
-    }
 
     @Override
     public boolean equals(@Nullable Object obj) {
@@ -67,7 +52,7 @@ public class Lesson {
             return false;
         }
         Lesson guest = (Lesson) obj;
-        return ((course.equals(guest.getCourse())) && (description.equals(guest.getDescription()))
+        return (((description.equals(guest.getDescription())) && date.equals(guest.getDate()))
         );
     }
 }

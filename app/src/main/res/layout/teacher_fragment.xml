@@ -71,12 +71,43 @@
             />
 
         <TextView
+            android:id="@+id/id_course_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/id_course_btn"
             android:layout_margin="10dp"
             android:layout_toRightOf="@+id/id_course_picture"
             android:text="List of my courses" />
+
+        <ImageView
+            android:id="@+id/id_schedule_picture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/id_course_picture"
+            android:layout_margin="10dp"
+            android:src="@drawable/schedule" />
+
+        <Button
+            android:id="@+id/id_schedule_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_course_text"
+            android:layout_marginTop="47dp"
+            android:layout_toRightOf="@+id/id_schedule_picture"
+            android:background="#00FFFFFF"
+            android:fontFamily="@android:string/cut"
+            android:text="My schedule"
+            android:textSize="25dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_schedule_btn"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@+id/id_schedule_picture"
+            android:text="My personal schedule" />
 
     </RelativeLayout>
 

@@ -9,9 +9,6 @@ public class Student {
     private String name;
     private String surname;
     private String email;
-    private ArrayList<Course> courses;
-    private ArrayList<Solution> solutions;
-    private ArrayList<Task> personalTasks;
 
     public Student(String name, String surname, String email) {
         this.name = name;
@@ -51,30 +48,6 @@ public class Student {
         this.email = email;
     }
 
-
-    public ArrayList<Solution> getSolutions() {
-        return solutions;
-    }
-
-    public void setSolutions(ArrayList<Solution> solutions) {
-        this.solutions = solutions;
-    }
-
-    public ArrayList<Task> getPersonalTasks() {
-        return personalTasks;
-    }
-
-    public void setPersonalTasks(ArrayList<Task> personalTasks) {
-        this.personalTasks = personalTasks;
-    }
-
-    public ArrayList<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
-    }
 
     @Override
     public boolean equals(@Nullable Object obj) {

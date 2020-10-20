@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,11 +35,19 @@ public class TeacherView extends Fragment implements BaseView {
         surname = view.findViewById(R.id.id_surname);
         email = view.findViewById(R.id.id_email);
 
-        Button button = view.findViewById(R.id.id_course_btn);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button buttonCourse = view.findViewById(R.id.id_course_btn);
+        buttonCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).navigateToScreen(MainActivity.ScreenId.TEACHER_COURSES);
+                ((MainActivity) getActivity()).navigateToScreen(MainActivity.ScreenId.TEACHER_COURSES);
+            }
+        });
+
+        Button buttonSchedule = view.findViewById(R.id.id_schedule_btn);
+        buttonSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity) getActivity()).navigateToScreen(MainActivity.ScreenId.TEACHER_SCHEDULE);
             }
         });
         showDataAtFirst();

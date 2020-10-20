@@ -9,11 +9,11 @@ public class LessonDao extends AbstractDao {
     Gson gson;
 
     public LessonDao() {
-        gson = new GsonBuilder().setPrettyPrinting().create();
+        gson = new GsonBuilder().registerTypeAdapter(Lesson.class,new LessonSerializer()).create();
     }
 
     public Lesson getEntity(String json) {
-        Lesson lesson = gson.fromJson(json, Lesson.class);
+        Lesson lesson = gson.fromJson(json,Lesson.class);
         return lesson;
     }
 

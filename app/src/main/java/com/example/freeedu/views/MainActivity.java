@@ -10,9 +10,11 @@ import com.example.freeedu.R;
 public class MainActivity extends FragmentActivity {
 
     public enum ScreenId {
-        LOGIN_SCREEN("login_screen"),
         TEACHER_MAIN("teacher_screen"),
-        TEACHER_COURSES("student_screen");
+        TEACHER_COURSES("teacher's courses_screen"),
+        LIST_OF_STUDENTS("list_of_student_screen"),
+        COURSE_SCHEDULE("course_schedule"),
+        TEACHER_SCHEDULE("teacher_schedule");
 
         private String mTag;
 
@@ -40,13 +42,20 @@ public class MainActivity extends FragmentActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         switch (screenId) {
-            case LOGIN_SCREEN:
-                break;
             case TEACHER_MAIN:
-                transaction.add(R.id.teacher_fragment_container, TeacherView.newInstance(), screenId.getTag());
+                transaction.replace(R.id.teacher_fragment_container, TeacherView.newInstance(), screenId.getTag());
                 break;
             case TEACHER_COURSES:
-                transaction.add(R.id.teacher_fragment_container, TeacherCoursesView.newInstance(), screenId.getTag());
+                transaction.replace(R.id.teacher_fragment_container, TeacherCoursesView.newInstance(), screenId.getTag());
+                break;
+            case LIST_OF_STUDENTS:
+                transaction.replace(R.id.teacher_fragment_container, ListOfStudentsView.newInstance(),screenId.getTag());
+                break;
+            case COURSE_SCHEDULE:
+                transaction.replace(R.id.teacher_fragment_container, new ScheduleView(true),screenId.getTag());
+                break;
+            case TEACHER_SCHEDULE:
+                transaction.replace(R.id.teacher_fragment_container, new ScheduleView(false),screenId.getTag());
                 break;
         }
 

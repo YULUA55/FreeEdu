@@ -10,8 +10,6 @@ import com.example.freeedu.dao.TeacherDao;
 import com.example.freeedu.entities.Course;
 import com.example.freeedu.entities.Teacher;
 
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class TeacherDaoTest {
     TeacherDao teacherDao;
@@ -40,16 +38,4 @@ public class TeacherDaoTest {
         assertEquals(teacher, teacher2);
     }
 
-    @Test
-    public void gettingTeachersCourses(){
-        Teacher teacher = new Teacher("Uli", "Alenkova", "uli@mail.ru");
-        Course[] transformCourses = courseDаo.getAll(
-                "[{\"name\":\"Math_basic\",\"description\":\"For beginner\"},{\"name\":\"Programming_basic\",\"description\":\"For beginner\"},{\"name\":\"AI_basic\",\"description\":\"For beginner\"}]");
-
-        ArrayList list = new ArrayList();
-        Collections.addAll(list,transformCourses);
-        teacher.setCourses(list);
-        assertEquals(3,teacher.getCourses().size());
-
-    }
 }

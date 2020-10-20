@@ -1,7 +1,9 @@
 package com.example.freeedu.connection;
 
 import android.os.AsyncTask;
+
 import com.example.freeedu.presenters.BasePresenter;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -40,12 +42,14 @@ public class AbstractAsyncTask extends AsyncTask<Request, Void, String> {
                         HttpMethod.GET,
                         request,
                         String.class);
-            }
 
-            break;
-            case POST:
+                break;
+            }
+            case POST: {
                 HttpEntity<String> request = new HttpEntity<String>(requests[0].getBodyJson(), headers);
                 response = restTemplate.exchange(requests[0].getUrl().getUrl(), HttpMethod.POST, request, String.class);
+                break;
+            }
 
         }
 
@@ -53,7 +57,7 @@ public class AbstractAsyncTask extends AsyncTask<Request, Void, String> {
     }
 
     @Override
-    protected void onPostExecute(String s) {
-        presenter.updateModel(s);
+    protected void onPostExecute(String json) {
+        presenter.updateModel(json);
     }
 }

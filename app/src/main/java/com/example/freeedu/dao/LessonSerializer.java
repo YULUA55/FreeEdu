@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class  LessonSerializer implements JsonDeserializer<Lesson> {
+public class LessonSerializer implements JsonDeserializer<Lesson> {
 
     @Override
     public Lesson deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {

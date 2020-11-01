@@ -1,7 +1,13 @@
 package com.example.freeedu.presenters;
 
-public interface BasePresenter {
+import java.util.List;
 
-    public void updateModel(String json);
+public interface BasePresenter<T> {
+    void requestFromModel();
+    void updateModel(List<T> data);
+    void updateModel(T data);
+    void updateView();
+
+    void error(String errorMessage);
 
 }

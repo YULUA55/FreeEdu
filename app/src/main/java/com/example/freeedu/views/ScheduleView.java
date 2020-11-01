@@ -17,28 +17,25 @@ import com.example.freeedu.R;
 import com.example.freeedu.presenters.SchedulePresenter;
 
 public class ScheduleView extends Fragment implements BaseView {
-    boolean courses;
+    SchedulePresenter.SenderEntity senderEntity;
     SchedulePresenter presenter;
     TableLayout box;
 
-    public ScheduleView(boolean courses) {
-        this.courses = courses;
+    public ScheduleView(SchedulePresenter.SenderEntity fromEntity) {
+        this.senderEntity = fromEntity;
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.schedule_fragment, container, false);
-        if (courses) {
-            presenter = new SchedulePresenter(this, "courseId");
-        } else presenter = new SchedulePresenter(this);
         box = view.findViewById(R.id.schedule_box);
         showDataAtFirst();
         return view;
     }
 
     public void showDataAtFirst() {
-        presenter.showLessons();
+        presenter.requestFromModel(senderEntity);
     }
 
 

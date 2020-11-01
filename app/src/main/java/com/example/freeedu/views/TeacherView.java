@@ -57,9 +57,7 @@ public class TeacherView extends Fragment implements BaseView {
 
     @Override
     public void showDataAtFirst() {
-        presenter.showName();
-        presenter.showEmail();
-        presenter.showSurname();
+        presenter.requestFromModel();
     }
 
     public void showName(String receivedName) {

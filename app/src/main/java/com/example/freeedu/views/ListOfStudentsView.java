@@ -37,7 +37,7 @@ public class ListOfStudentsView extends Fragment implements BaseView {
     }
 
     public void showDataAtFirst() {
-        presenter.showListOfStudents();
+        presenter.requestFromModel();
     }
 
 

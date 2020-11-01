@@ -48,7 +48,7 @@ public class Course {
             return false;
         }
         Course guest = (Course) obj;
-        return ((name.equals( guest.getName())) && (description.equals( guest.getDescription()))
+        return ((name.equals(guest.getName())) && (description.equals(guest.getDescription()))
         );
     }
 

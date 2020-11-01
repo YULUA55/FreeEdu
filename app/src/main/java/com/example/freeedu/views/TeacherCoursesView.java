@@ -38,7 +38,7 @@ public class TeacherCoursesView extends Fragment implements BaseView {
     }
 
     public void showDataAtFirst() {
-        presenter.getCourses();
+        presenter.requestFromModel();
     }
 
 

@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.freeedu.R;
+import com.example.freeedu.presenters.SchedulePresenter;
 
 public class MainActivity extends FragmentActivity {
 
@@ -26,6 +27,7 @@ public class MainActivity extends FragmentActivity {
             return mTag;
         }
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +54,10 @@ public class MainActivity extends FragmentActivity {
                 transaction.replace(R.id.teacher_fragment_container, ListOfStudentsView.newInstance(),screenId.getTag());
                 break;
             case COURSE_SCHEDULE:
-                transaction.replace(R.id.teacher_fragment_container, new ScheduleView(true),screenId.getTag());
+                transaction.replace(R.id.teacher_fragment_container, new ScheduleView(SchedulePresenter.SenderEntity.COURSE),screenId.getTag());
                 break;
             case TEACHER_SCHEDULE:
-                transaction.replace(R.id.teacher_fragment_container, new ScheduleView(false),screenId.getTag());
+                transaction.replace(R.id.teacher_fragment_container, new ScheduleView(SchedulePresenter.SenderEntity.TEACHER),screenId.getTag());
                 break;
         }
 

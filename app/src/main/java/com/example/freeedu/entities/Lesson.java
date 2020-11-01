@@ -10,7 +10,10 @@ public class Lesson {
     private String description;
     private LocalDateTime date;
 
-    public Lesson(){};
+    public Lesson() {
+    }
+
+    ;
 
     public Lesson(String description, LocalDateTime date) {
         this.description = description;

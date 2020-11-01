@@ -1,42 +1,42 @@
 package com.example.freeedu.presenters;
 
-import com.example.freeedu.connection.AbstractAsyncTask;
-import com.example.freeedu.connection.Request;
 import com.example.freeedu.dao.CourseDаo;
 import com.example.freeedu.entities.Course;
 import com.example.freeedu.model.TeacherCoursesModel;
 import com.example.freeedu.views.TeacherCoursesView;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.List;
 
-public class TeacherCoursesPresenter implements BasePresenter {
+public class TeacherCoursesPresenter implements BasePresenter<Course> {
 
     private TeacherCoursesView teacherCoursesView;
     private TeacherCoursesModel teacherCoursesModel;
-    private String data;
-    private Course[] transformCourses;
+    private CourseDаo courseDаo;
 
     public TeacherCoursesPresenter(TeacherCoursesView teacherCoursesView) {
         this.teacherCoursesView = teacherCoursesView;
+        courseDаo = new CourseDаo(this);
     }
 
-    public void getCourses() {
-        Request request = new Request(Request.urlId.TEACHER_COURSES, Long.valueOf(3938849));
-        AbstractAsyncTask abstractAsyncTask = new AbstractAsyncTask(this);
-        abstractAsyncTask.execute(request);
+    @Override
+    public void requestFromModel() {
+        courseDаo.sendRequest();
     }
 
-    private ArrayList<Course> getData(String json) {
-        CourseDаo courseDаo = new CourseDаo();
-        transformCourses = courseDаo.getAll(json);
-        ArrayList<Course> list = new ArrayList();
-        Collections.addAll(list, transformCourses);
-
-        return list;
+    @Override
+    public void updateModel(List<Course> data) {
+        teacherCoursesModel = new TeacherCoursesModel(data);
+        updateView();
     }
 
-    public void showCourses() {
+    @Override
+    public void updateModel(Course data) {
+
+    }
+
+    @Override
+    public void updateView() {
+        String data;
         for (int i = 0; i < teacherCoursesModel.getCourses().size(); i++) {
             data = teacherCoursesModel.getCourses().get(i).getName() + "\n" + teacherCoursesModel.getCourses().get(i).getDescription();
             teacherCoursesView.showCourse(data);
@@ -44,11 +44,10 @@ public class TeacherCoursesPresenter implements BasePresenter {
     }
 
     @Override
-    public void updateModel(String json) {
-        teacherCoursesModel = new TeacherCoursesModel(getData(json));
-        showCourses();
-    }
+    public void error(String errorMessage) {
 
+        System.out.println("Сообщить на вьюшке об ошибке");
+    }
 
 }
 
